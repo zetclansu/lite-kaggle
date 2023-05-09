@@ -349,5 +349,18 @@ def startfk():
 
 
 if __name__ == "__main__":
+    os.environ.setdefault('TF_CPP_MIN_LOG_LEVEL', '2')
+    os.environ.setdefault('ACCELERATE', 'True')
+    os.environ.setdefault('FORCE_CUDA', '1')
+    os.environ.setdefault('ATTN_PRECISION', 'fp16')
+    os.environ.setdefault('PYTORCH_CUDA_ALLOC_CONF', 'garbage_collection_threshold:0.9,max_split_size_mb:512')   # ещё вариант PYTORCH_CUDA_ALLOC_CONF=garbage_collection_threshold:0.9,max_split_size_mb:128
+    os.environ.setdefault('CUDA_LAUNCH_BLOCKING', '0')
+    os.environ.setdefault('CUDA_CACHE_DISABLE', '0')
+    os.environ.setdefault('CUDA_AUTO_BOOST', '1')
+    os.environ.setdefault('CUDA_MODULE_LOADING', 'LAZY')
+    os.environ.setdefault('CUDA_DEVICE_DEFAULT_PERSISTING_L2_CACHE_PERCENTAGE_LIMIT', '0')
+    os.environ.setdefault('GRADIO_ANALYTICS_ENABLED', 'False')
+    os.environ.setdefault('SAFETENSORS_FAST_GPU', '1')
+    os.environ.setdefault('NUMEXPR_MAX_THREADS', '16')
     prepare_environment()
     startfk()
